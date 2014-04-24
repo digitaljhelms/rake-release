@@ -138,14 +138,15 @@ namespace :release do
     if(SHIP_DIST)
       # Run production/dist build tasks
       Rake::Task["release:build"].invoke
+
+      if(DIST_TLD)
+        # Position production/dist build at top-level
+        Rake::Task["release:toplevel"].invoke
+      end
     end
 
+    # Scrub all files to remove any cruft
     Rake::Task["release:prune"].invoke
-
-    if(DIST_TLD)
-      # Position production/dist build at top-level
-      Rake::Task["release:toplevel"].invoke
-    end
 
     puts "Cloning the release repo"
     FileUtils.cd(build_dir)

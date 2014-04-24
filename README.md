@@ -38,7 +38,7 @@ REMOVE_PATHS = [] # array of paths specific to project
 REMOVE_SUBMODULES = [] # array of submodules specific to project
 
 SHIP_DIST = true # release built output? if false, PRE_BUILD and BUILD_CMD are not needed
-DIST_TLD = false # position dist built as top-level in release repository?
+DIST_TLD = false # (if SHIP_DIST=true) move dist contents to top-level in release repository?
 PRE_BUILD = '' # commands to perform prior to build, such as `npm install && bower install`
 BUILD_CMD = '' # distribution build command, such as `grunt build:dist`
 
